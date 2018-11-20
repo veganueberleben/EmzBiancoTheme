@@ -92,6 +92,7 @@
         .emz-detail-product--configurator {
             border-bottom: 1px solid #eee;
             .unitize(height, 70);
+            height: auto;
 
             .configurator--form {
                 .unitize(padding-top, 20);
@@ -100,23 +101,32 @@
 
             .emz-detail-product-variants {
                 display: flex;
+                flex-wrap: wrap;
 
-                .configurator--label, .configurator--select{
-                    width: 50%;
+                .configurator--label {
+                    width: 100%;
                     .unitize(font-size, 15);
                 }
 
                 .configurator--select {
                     text-align: right;
                     .unitize(height, 34);
+                    .unitize(font-size, 15);
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    .unitize(padding-top, 20);
+                    text-align: center;
+                    flex-wrap: wrap;
 
                     label {
                         display: inline-block;
                         cursor: pointer;
-                        .unitize(margin-top, 4);
-                        .unitize(margin-bottom, 2);
-                        border-radius: 22px;
                         border: 1px solid #fff;
+                        width: calc(100% / 2);
+                        .unitize(padding-top,10);
+                        .unitize(margin-top, 4);
+                        .unitize(margin-bottom, 20);
 
                         &.is--active, &:hover {
                             border: 1px solid #999;
@@ -127,6 +137,34 @@
                             .unitize(width, 22);
                             .unitize(border-radius, 22);
                             border: 2px solid #fff;
+                        }
+
+                        .image--element {
+                            .unitize(width, 120);
+                            .unitize(height, 120);
+                            max-width: 100%;
+                            max-height: 100%;
+                            display: block;
+                            margin: 0 auto;
+                            .image--media {
+                                display: block;
+                                height: 70%;
+                                .unitize(max-width, 90);
+                                .unitize(max-height, 90);
+                                margin: 0 auto;
+
+                                img {
+                                    margin: 0 auto;
+                                }
+                            }
+                            .image--media-title {
+                                display: block;
+                                color: black;
+                                width: 100%;
+                                text-align: center;
+                                .unitize(margin-top, 10);
+                                height: 20%;
+                            }
                         }
                     }
                 }

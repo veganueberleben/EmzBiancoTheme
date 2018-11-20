@@ -17,20 +17,45 @@
             <div class="configurator--select">
                 {foreach $sConfigurator.values as $configValue}
                     {if !{config name=hideNoInstock} || ({config name=hideNoInstock} && $configValue.selectable)}
-                        <input type="radio" 
-                                name="group[{$sConfigurator.groupID}]" 
+                        <input type="radio"
+                                name="group[{$sConfigurator.groupID}]"
                                 id="group[{$configValue.groupID}][{$configValue.optionID}]"
                                 value="{$configValue.optionID}"
                                 data-ajax-select-variants="true"
-                                {if $configValue.selected && ($sArticle.notification || $configValue.selectable)}checked="checked"{/if} 
+                                {if $configValue.selected && ($sArticle.notification || $configValue.selectable)}checked="checked"{/if}
                                 style="display: none;"
                         />
+                        <label for="group[{$configValue.groupID}][{$configValue.optionID}]" {if $configValue.selected}class="is--active"{/if}>
+                            {if $configValue.media}
+                                {$media = $configValue.media}
 
-                        {if $configValue.attributes.core}
-                            <label for="group[{$configValue.groupID}][{$configValue.optionID}]" {if $configValue.selected}class="is--active"{/if}>
-                                <div class="emz-configurator--select-label" style="background-color: {$configValue.attributes.core->get('color_code')}"></div>
-                            </label>
-                        {/if}
+                                {block name='frontend_detail_configurator_variant_group_option_label_image'}
+                                    <span class="image--element">
+                                        <span class="image--media">
+                                            {if isset($media.thumbnails)}
+                                                <img srcset="{$media.thumbnails[0].sourceSet}" alt="{$configValue.optionname}" />
+                                            {else}
+                                                <img src="{link file='frontend/_public/src/img/no-picture.jpg'}" alt="{$configValue.optionname}">
+                                            {/if}
+                                        </span>
+                                        <span class="image--media-title">
+                                            {$configValue.optionname}
+                                        </span>
+                                    </span>
+                                {/block}
+                            {else}
+                                {block name='frontend_detail_configurator_variant_group_option_label_text'}
+                                    <span class="image--element">
+                                        <span class="image--media">
+
+                                        </span>
+                                        <span class="image--media-title">
+                                            {$configValue.optionname}
+                                        </span>
+                                    </span>
+                                {/block}
+                            {/if}
+                        </label>
                     {/if}
                 {/foreach}
             </div>
