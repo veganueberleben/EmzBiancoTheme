@@ -124,9 +124,20 @@
                         cursor: pointer;
                         border: 1px solid #fff;
                         width: calc(100% / 2);
-                        .unitize(padding-top,10);
                         .unitize(margin-top, 4);
                         .unitize(margin-bottom, 20);
+                        
+                        &.has--image {
+                            .unitize(padding-top,10);
+
+                            .image--element {
+                                .unitize(height, 120);
+
+                                .image--media-title {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
 
                         &.is--active, &:hover {
                             border: 1px solid #999;
@@ -141,7 +152,6 @@
 
                         .image--element {
                             .unitize(width, 120);
-                            .unitize(height, 120);
                             max-width: 100%;
                             max-height: 100%;
                             display: block;
@@ -163,6 +173,7 @@
                                 width: 100%;
                                 text-align: center;
                                 .unitize(margin-top, 10);
+                                .unitize(margin-bottom, 10);
                                 height: 20%;
                             }
                         }
@@ -562,6 +573,7 @@
                 .unitize(font-size, 14);
                 border: 0;
                 color: #000;
+                display: inline-block;
 
                 &:after{
                     content: '';

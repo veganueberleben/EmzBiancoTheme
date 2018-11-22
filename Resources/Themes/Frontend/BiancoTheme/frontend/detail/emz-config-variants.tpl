@@ -25,7 +25,7 @@
                                 {if $configValue.selected && ($sArticle.notification || $configValue.selectable)}checked="checked"{/if}
                                 style="display: none;"
                         />
-                        <label for="group[{$configValue.groupID}][{$configValue.optionID}]" {if $configValue.selected}class="is--active"{/if}>
+                        <label for="group[{$configValue.groupID}][{$configValue.optionID}]" class="{if $configValue.selected} is--active{/if}{if $configValue.media} has--image{/if}">
                             {if $configValue.media}
                                 {$media = $configValue.media}
 
