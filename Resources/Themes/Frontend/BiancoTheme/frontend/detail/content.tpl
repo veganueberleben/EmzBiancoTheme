@@ -155,13 +155,13 @@
                 </div>
             </div>
         </div>
-        {if $sArticle.images[0] && $sArticle.images[0].thumbnails[1]}
-            <div class="emz-product--details-description-box emz-product--details-description-box-right">
+        <div class="emz-product--details-description-box emz-product--details-description-box-right">
+            {if $sArticle.images[0] && $sArticle.images[0].thumbnails[1]}
                 <img srcset="{$sArticle.images[0].thumbnails[1].sourceSet}"
                     alt="{$sArticle.articleName}"
                     title="{$sArticle.articleName}" />
-            </div>
-        {/if}
+            {/if}
+        </div>
     </div>
     {if $sArticle.sSimilarArticles || $sArticle.sRelatedArticles}
         <div class="emz-product--details-recommendation-wrapper">
